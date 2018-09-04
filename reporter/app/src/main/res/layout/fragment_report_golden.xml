@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" alias="v"/>
+        <import type="ru.coffeeset.cscl.reporter.models.reports.ReportState" alias="s"/>
+
+        <variable
+            name="fragment"
+            type="ru.coffeeset.cscl.reporter.ui.fragments.reports.GoldenReportFragment" />
+    </data>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/division_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_margin="3dp"
+                    android:background="@color/itemBackground"
+
+                    android:text="@{fragment.divisionName}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/textMain"
+                    android:textSize="15sp"
+
+                    app:layout_constraintBottom_toTopOf="@id/recycler_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/date"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_margin="3dp"
+                    android:background="@color/itemBackground"
+
+                    android:text="@{fragment.dateText}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/textMain"
+                    android:textSize="15sp"
+
+                    app:layout_constraintBottom_toTopOf="@id/recycler_view"
+                    app:layout_constraintLeft_toRightOf="@id/division_name"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{fragment.report.state==s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date" />
+
+                <ProgressBar
+                    android:id="@+id/loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="200dp"
+
+                    android:visibility="@{fragment.report.state==s.LOADING ? v.VISIBLE: v.GONE}"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</layout>

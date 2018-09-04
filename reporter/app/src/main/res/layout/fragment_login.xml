@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="clicker"
+            type="ru.coffeeset.cscl.reporter.ui.fragments.login.LoginFragment" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparentBlack90">
+
+
+        <EditText
+            android:id="@+id/edit_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="@string/STR_LOGIN_LOGIN"
+            android:inputType="textPersonName|textNoSuggestions"
+
+            android:textColor="@color/textMain"
+            android:textSize="24sp"
+
+            app:layout_constraintBottom_toTopOf="@id/edit_password"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/button_clear_login"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text=""
+            android:theme="@style/colorControlHighlight"
+
+            app:layout_constraintBottom_toBottomOf="@id/edit_login"
+            app:layout_constraintRight_toRightOf="@id/edit_login"
+            app:layout_constraintTop_toTopOf="@id/edit_login" />
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="@string/STR_LOGIN_PASSWORD"
+            android:inputType="textPassword"
+
+            android:textColor="@color/textMain"
+            android:textSize="24sp"
+
+            app:layout_constraintBottom_toTopOf="@id/button_login"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/button_clear_password"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text=""
+            android:theme="@style/colorControlHighlight"
+
+            app:layout_constraintBottom_toBottomOf="@id/edit_password"
+            app:layout_constraintRight_toRightOf="@id/edit_password"
+            app:layout_constraintTop_toTopOf="@id/edit_password" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/STR_LOGIN_BUTTON"
+
+            android:backgroundTint="@color/buttons"
+            android:theme="@style/greenButtons"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:visibility="gone"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_password"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

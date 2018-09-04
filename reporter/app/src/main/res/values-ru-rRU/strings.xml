@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--NavBar-->
+    <string name="STR_NAVIGATION_DASHBOARD">Сводка</string>
+    <string name="STR_NAVIGATION_REPORTS">Отчеты</string>
+    <string name="STR_NAVIGATION_SETTINGS">Настройки</string>
+
+
+    <!--ActionBar-->
+    <string name="STR_ACTION_DASHBOARD">Сводка</string>
+    <string name="STR_ACTION_REPORTS">Отчеты</string>
+    <string name="STR_ACTION_SETTINGS">Настройки</string>
+
+    <string name="STR_ACTION_FILTER">Фильтр</string>
+    <string name="STR_ACTION_DATE">Дата</string>
+
+    <string name="STR_ACTION_DIVISIONS">Кофейни</string>
+    <string name="STR_ACTION_SALES_MIX">SalesMix</string>
+    <string name="STR_ACTION_GOLDEN">Золотой</string>
+
+
+    <!--LoginScreen-->
+    <string name="STR_LOGIN_LOGIN">Логин</string>
+    <string name="STR_LOGIN_PASSWORD">Пароль</string>
+    <string name="STR_LOGIN_BUTTON">Вход</string>
+
+
+    <!--FilterFragment-->
+    <string name="STR_FILTER_DEFAULT">По умолчанию</string>
+    <string name="STR_FILTER_SAVED">Сохраненный</string>
+
+    <string name="STR_FILTER_ALL">Все</string>
+    <string name="STR_FILTER_COUNTRY">Страна</string>
+    <string name="STR_FILTER_ORGANIZATION">Организация</string>
+    <string name="STR_FILTER_CITY">Город</string>
+    <string name="STR_FILTER_DIVISION">Кофейня</string>
+    <string name="STR_FILTER_APPLY">Применить</string>
+
+
+
+
+
+    <!--Report-->
+    <string name="STR_REPORT_NAME_DIVISIONS">Кофейни</string>
+    <string name="STR_REPORT_NAME_SALES_MIX">Sales Mix</string>
+    <string name="STR_REPORT_NAME_GOLDEN">Золотой</string>
+
+    <string name="STR_REPORT_DESCRIPTION_DIVISIONS">very important</string>
+    <string name="STR_REPORT_DESCRIPTION_SALES_MIX">По сотрудникам: сравнение продаж по категориям</string>
+    <string name="STR_REPORT_DESCRIPTION_GOLDEN">По сотрудникам: количество проданных товаров по категориям</string>
+
+    <string name="STR_REPORT_DIV">Кофейня: %1$s</string>
+    <string name="STR_REPORT_PERIOD">Период: с %1$s до %2$s</string>
+
+
+
+    <!--Dash-->
+    <string name="STR_REPORT_DASH_NOW">сейчас</string>
+    <string name="STR_REPORT_DASH_YESTERDAY">вчера</string>
+    <string name="STR_REPORT_DASH_PROGRESS_NAME">План-Факт</string>
+
+    <string name="STR_REPORT_DASH_PLAN">План</string>
+    <string name="STR_REPORT_DASH_FACT">Факт</string>
+
+    <string name="STR_REPORT_DASH_TODAY">За сегодня:</string>
+    <string name="STR_REPORT_DASH_MONTH">За месяц:</string>
+
+
+
+    <!--DialogLogout-->
+    <string name="STR_SETTINGS_VERSION">Версия: %1$s</string>
+    <string name="STR_SETTINGS_USER">Пользователь: %1$s</string>
+    <string name="STR_SETTINGS_DATE">Дата отчетности: %1$s</string>
+    <string name="STR_SETTINGS_ANIMATION">Анимация</string>
+
+    <string name="STR_SETTINGS_BUTTON">Сменить пользователя</string>
+
+    <string name="STR_DIALOG_TITTLE">Сменить пользователя?</string>
+    <string name="STR_DIALOG_POSITIVE">ДА</string>
+    <string name="STR_DIALOG_NEGATIVE">НЕТ</string>
+
+
+
+
+
+
+
+
+    <!--Toasts-->
+    <string name="TOAST_PRESS_TWICE_TO_EXIT">Нажмите еще раз для выхода</string>
+    <string name="TOAST_INCORRECT">Не все данные введены</string>
+    <string name="TOAST_AUTHORIZATION_ERROR">Ошибка авторизации</string>
+    <string name="TOAST_REPORT_NOTHING">Ничего не найдено</string>
+
+
+
+    <!-- HTTP ERRORS -->
+    <string name="ERROR_DESC_NO_NETWORK">Network unavailable</string>
+    <string name="ERROR_DESC_NO_DATA">Nothing to send</string>
+    <string name="ERROR_DESC_REQUEST_ERROR">Request error</string>
+    <string name="ERROR_DESC_UNAUTHORIZED">Unauthorized</string>
+    <string name="ERROR_DESC_FORBIDDEN">Access denied</string>
+    <string name="ERROR_DESC_NOT_FOUND">Not found</string>
+    <string name="ERROR_DESC_LOGIN_ERROR">Login error</string>
+    <string name="ERROR_DESC_SERVER_ERROR">Server error</string>
+    <string name="ERROR_DESC_SERVICE_UNAVAILABLE">Service unavailable</string>
+    <string name="ERROR_DESC_ALREADY_EXISTS">Already exists</string>
+    <string name="ERROR_DESC_UNKNOWN">Unknown error</string>
+
+</resources>

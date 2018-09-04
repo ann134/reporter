@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/master"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toTopOf="@id/franchise"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fact_master"
+        app:layout_constraintTop_toBottomOf="@id/empty" />
+
+    <TextView
+        android:id="@+id/franchise"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toTopOf="@id/spv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fact_franchise"
+        app:layout_constraintTop_toBottomOf="@id/master" />
+
+    <TextView
+        android:id="@+id/spv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fact_spv"
+        app:layout_constraintTop_toBottomOf="@id/franchise" />
+
+
+
+    <TextView
+        android:id="@+id/fact_master"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toTopOf="@id/fact_franchise"
+        app:layout_constraintLeft_toRightOf="@id/master"
+        app:layout_constraintRight_toLeftOf="@id/plan_master"
+        app:layout_constraintTop_toBottomOf="@id/fact" />
+
+    <TextView
+        android:id="@+id/fact_franchise"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toTopOf="@id/fact_spv"
+        app:layout_constraintLeft_toRightOf="@id/franchise"
+        app:layout_constraintRight_toLeftOf="@id/plan_franchise"
+        app:layout_constraintTop_toBottomOf="@id/fact_master" />
+
+    <TextView
+        android:id="@+id/fact_spv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/spv"
+        app:layout_constraintRight_toLeftOf="@id/plan_spv"
+        app:layout_constraintTop_toBottomOf="@id/fact_franchise" />
+
+
+    <TextView
+        android:id="@+id/plan_master"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toTopOf="@id/plan_franchise"
+        app:layout_constraintLeft_toRightOf="@id/fact_master"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plan" />
+
+
+    <TextView
+        android:id="@+id/plan_franchise"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toTopOf="@id/plan_spv"
+        app:layout_constraintLeft_toRightOf="@id/fact_franchise"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plan_master" />
+
+    <TextView
+        android:id="@+id/plan_spv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/fact_spv"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plan_franchise" />
+
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:text=""
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/master"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fact" />
+
+    <TextView
+        android:id="@+id/fact"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fact_master"
+        app:layout_constraintLeft_toRightOf="@id/empty"
+        app:layout_constraintRight_toLeftOf="@id/plan" />
+
+    <TextView
+        android:id="@+id/plan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+
+        android:textColor="@color/textMain"
+        android:textSize="17sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/plan_master"
+        app:layout_constraintLeft_toRightOf="@id/fact"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+

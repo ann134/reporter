@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="reportItem"
+            type="ru.coffeeset.cscl.reporter.models.reports.Golden.ReportItem" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:background="@color/itemBackground">
+
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+
+            android:text='@{reportItem.author}'
+            android:textColor="@color/textAccent"
+            android:textSize="23sp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+       <!-- ********  иконки **********************-->
+        <TextView
+            android:id="@+id/percent_star"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+
+            android:background="@drawable/ico_rep_star"
+            android:backgroundTint="@color/golden_star"
+            android:text=""
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/coffee_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:background="@drawable/ico_rep_coffee"
+            android:backgroundTint="@color/salesMixCoffee"
+            android:text=""
+
+            app:layout_constraintBottom_toTopOf="@id/coffee_qty"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/drink_icon"
+            app:layout_constraintTop_toBottomOf="@id/author" />
+
+        <TextView
+            android:id="@+id/drink_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:background="@drawable/ico_rep_drink"
+            android:backgroundTint="@color/salesMixDrink"
+            android:text=""
+
+            app:layout_constraintBottom_toTopOf="@id/drink_qty"
+            app:layout_constraintLeft_toRightOf="@id/coffee_icon"
+            app:layout_constraintRight_toLeftOf="@id/food_icon"
+            app:layout_constraintTop_toBottomOf="@id/author" />
+
+        <TextView
+            android:id="@+id/food_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:background="@drawable/ico_rep_food"
+            android:backgroundTint="@color/salesMixFood"
+            android:text=""
+
+            app:layout_constraintBottom_toTopOf="@id/food_qty"
+            app:layout_constraintLeft_toRightOf="@id/drink_icon"
+            app:layout_constraintRight_toLeftOf="@id/percent_star"
+            app:layout_constraintTop_toBottomOf="@id/author" />
+
+
+
+
+
+        <!-- ********  значения **********************-->
+        <TextView
+            android:id="@+id/percent_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text='@{reportItem.rate}'
+            android:textColor="@color/textAccent"
+            android:textSize="30sp"
+
+            app:layout_constraintBottom_toBottomOf="@id/percent_star"
+            app:layout_constraintLeft_toLeftOf="@id/percent_star"
+            app:layout_constraintRight_toRightOf="@id/percent_star"
+            app:layout_constraintTop_toTopOf="@id/percent_star" />
+
+        <TextView
+            android:id="@+id/coffee_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/textMain"
+            android:textSize="18sp"
+
+            app:layout_constraintBottom_toTopOf="@id/skobka"
+            app:layout_constraintLeft_toLeftOf="@id/coffee_icon"
+            app:layout_constraintRight_toRightOf="@id/coffee_icon"
+            app:layout_constraintTop_toBottomOf="@id/coffee_icon" />
+
+        <TextView
+            android:id="@+id/drink_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/textMain"
+            android:textSize="18sp"
+
+            app:layout_constraintBottom_toTopOf="@id/skobka"
+            app:layout_constraintLeft_toLeftOf="@id/drink_icon"
+            app:layout_constraintRight_toRightOf="@id/drink_icon"
+            app:layout_constraintTop_toBottomOf="@id/drink_icon" />
+
+        <TextView
+            android:id="@+id/food_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/textMain"
+            android:textSize="18sp"
+
+            app:layout_constraintBottom_toTopOf="@id/skobka"
+            app:layout_constraintLeft_toLeftOf="@id/food_icon"
+            app:layout_constraintRight_toRightOf="@id/food_icon"
+            app:layout_constraintTop_toBottomOf="@id/food_icon" />
+
+
+
+
+
+        <ImageView
+            android:id="@+id/skobka"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+
+            android:src="@drawable/ico_rep_skobka"
+
+            app:layout_constraintBottom_toTopOf="@id/result_qty"
+            app:layout_constraintLeft_toLeftOf="@id/coffee_icon"
+            app:layout_constraintRight_toRightOf="@id/food_icon"
+            app:layout_constraintTop_toBottomOf="@id/coffee_qty" />
+
+
+
+
+        <TextView
+            android:id="@+id/result_icon"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+
+            android:background="@drawable/ico_rep_result"
+            android:backgroundTint="@color/textMain"
+            android:text=""
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/skobka"
+            app:layout_constraintRight_toLeftOf="@id/result_qty"
+            app:layout_constraintTop_toBottomOf="@id/skobka" />
+
+
+        <TextView
+            android:id="@+id/result_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text='@{reportItem.sumInvoiceQty}'
+            android:textColor="@color/textMain"
+            android:textSize="18sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/result_icon"
+            app:layout_constraintRight_toRightOf="@id/skobka"
+            app:layout_constraintTop_toBottomOf="@id/skobka" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="android.view.View" alias="v"/>
+        <import type="ru.coffeeset.cscl.reporter.models.reports.ReportState" alias="s"/>
+        <import type="ru.coffeeset.cscl.reporter.models.accessList.Property" alias="p"/>
+
+        <variable
+            name="dash"
+            type="ru.coffeeset.cscl.reporter.ui.fragments.dashboard.DashboardFragment" />
+
+    </data>
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/now"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+
+                android:text="@string/STR_REPORT_DASH_NOW"
+                android:textAlignment="center"
+                android:textColor="@color/textMain"
+                android:textSize="20sp"
+
+                app:layout_constraintBottom_toTopOf="@id/now_value"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/yesterday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/now_value"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="top"
+
+                android:visibility="@{dash.revenueToday.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+                android:text="@{dash.revenueToday.getTotalFact()}"
+
+                android:textAlignment="center"
+                android:textColor="@color/textMain"
+                android:textSize="25sp"
+
+                app:layout_constraintBottom_toTopOf="@id/progress_bar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/yesterday_value"
+                app:layout_constraintTop_toBottomOf="@id/now" />
+
+            <ProgressBar
+                android:id="@+id/loading_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:visibility="@{dash.revenueToday.getState() == s.LOADING ? v.VISIBLE: v.GONE}"
+
+                app:layout_constraintBottom_toTopOf="@id/progress_bar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/yesterday_value"
+                app:layout_constraintTop_toBottomOf="@id/now" />
+
+
+            <TextView
+                android:id="@+id/yesterday"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+
+                android:text="@string/STR_REPORT_DASH_YESTERDAY"
+                android:textAlignment="center"
+                android:textColor="@color/textMain"
+                android:textSize="20sp"
+
+                app:layout_constraintBottom_toTopOf="@id/yesterday_value"
+                app:layout_constraintLeft_toRightOf="@id/now"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/yesterday_value"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="top"
+
+                android:visibility="@{dash.revenueYesterday.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+                android:text="@{dash.revenueYesterday.getTotalFact()}"
+
+                android:textAlignment="center"
+                android:textColor="@color/textMain"
+                android:textSize="25sp"
+
+                app:layout_constraintBottom_toTopOf="@id/progress_bar"
+                app:layout_constraintLeft_toRightOf="@id/now_value"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/yesterday" />
+
+
+            <ProgressBar
+                android:id="@+id/loading_yesterday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:visibility="@{dash.revenueYesterday.getState() == s.LOADING ? v.VISIBLE: v.GONE}"
+
+                app:layout_constraintBottom_toTopOf="@id/progress_bar"
+                app:layout_constraintLeft_toRightOf="@id/now_value"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/yesterday" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                android:background="@color/dashProgressBarBack"
+                android:progressDrawable="@drawable/progress_bar"
+                android:progressTint="@color/dashChartPlan"
+
+                app:layout_constraintBottom_toTopOf="@id/chart"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/now_value" />
+
+            <TextView
+                android:id="@+id/text_progress_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+
+                android:text="@string/STR_REPORT_DASH_PROGRESS_NAME"
+                android:textAlignment="textStart"
+                android:textColor="@color/textMain"
+                android:textSize="22sp"
+
+                app:layout_constraintBottom_toTopOf="@id/text_progress_period"
+                app:layout_constraintLeft_toLeftOf="@id/progress_bar"
+                app:layout_constraintTop_toTopOf="@id/progress_bar" />
+
+            <TextView
+                android:id="@+id/text_progress_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="8dp"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                android:textAlignment="textStart"
+                android:textColor="@color/textMain"
+                android:textSize="19sp"
+
+                app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+                app:layout_constraintLeft_toLeftOf="@id/progress_bar"
+                app:layout_constraintTop_toBottomOf="@id/text_progress_name" />
+
+            <TextView
+                android:id="@+id/text_progress_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+
+                android:text="@{dash.revenueMonth.getTotalProgress()}"
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                android:textAlignment="textEnd"
+                android:textColor="@color/textMain"
+                android:textSize="27sp"
+
+                app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+                app:layout_constraintRight_toRightOf="@id/progress_bar"
+                app:layout_constraintTop_toTopOf="@id/progress_bar" />
+
+
+            <ProgressBar
+                android:id="@+id/loading_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.VISIBLE: v.GONE}"
+
+                app:layout_constraintBottom_toTopOf="@id/chart"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/now_value" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                app:layout_constraintBottom_toTopOf="@id/text_today"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar" />
+
+            <ProgressBar
+                android:id="@+id/loading_chart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.VISIBLE: v.GONE}"
+
+                app:layout_constraintBottom_toTopOf="@id/text_today"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar" />
+
+
+            <TextView
+                android:id="@+id/text_today"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+
+                android:text="@string/STR_REPORT_DASH_TODAY"
+                android:textColor="@color/textMain"
+                android:textSize="16sp"
+
+                app:layout_constraintBottom_toTopOf="@id/widget_today"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chart" />
+
+
+            <ru.coffeeset.cscl.reporter.ui.fragments.dashboard.WidgetDash
+                android:id="@+id/widget_today"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:visibility="@{dash.revenueToday.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                app:factMaster="@{dash.revenueToday.getTotalFactByProperty(p.MASTER)}"
+                app:factFranchise="@{dash.revenueToday.getTotalFactByProperty(p.FRANCHISE)}"
+                app:factSpv="@{dash.revenueToday.getTotalFactByProperty(p.SPV)}"
+
+                app:planMaster="@{dash.revenueToday.getTotalPlanByProperty(p.MASTER)}"
+                app:planFranchise="@{dash.revenueToday.getTotalPlanByProperty(p.FRANCHISE)}"
+                app:planSpv="@{dash.revenueToday.getTotalPlanByProperty(p.SPV)}"
+
+                app:layout_constraintBottom_toTopOf="@id/text_month"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_today" />
+
+
+            <ProgressBar
+                android:id="@+id/loading_widget_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:visibility="@{dash.revenueToday.getState() == s.LOADING ? v.VISIBLE: v.GONE}"
+
+                app:layout_constraintBottom_toTopOf="@id/text_month"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_today" />
+
+            <TextView
+                android:id="@+id/text_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="bottom"
+
+                android:text="@string/STR_REPORT_DASH_MONTH"
+                android:textColor="@color/textMain"
+                android:textSize="16sp"
+
+                app:layout_constraintBottom_toTopOf="@id/widget_month"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/widget_today" />
+
+
+            <ru.coffeeset.cscl.reporter.ui.fragments.dashboard.WidgetDash
+                android:id="@+id/widget_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.INVISIBLE : v.VISIBLE}"
+
+                app:factMaster="@{dash.revenueMonth.getTotalFactByProperty(p.MASTER)}"
+                app:factFranchise="@{dash.revenueMonth.getTotalFactByProperty(p.FRANCHISE)}"
+                app:factSpv="@{dash.revenueMonth.getTotalFactByProperty(p.SPV)}"
+
+                app:planMaster="@{dash.revenueMonth.getTotalPlanByProperty(p.MASTER)}"
+                app:planFranchise="@{dash.revenueMonth.getTotalPlanByProperty(p.FRANCHISE)}"
+                app:planSpv="@{dash.revenueMonth.getTotalPlanByProperty(p.SPV)}"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_month" />
+
+            <ProgressBar
+                android:id="@+id/loading_widget_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:visibility="@{dash.revenueMonth.getState() == s.LOADING ? v.VISIBLE: v.GONE}"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_month" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

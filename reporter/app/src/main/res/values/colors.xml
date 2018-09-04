@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#101010</color> <!--show in list of running applications и полукруги -->
+    <color name="colorPrimaryDark">#000</color> <!--color Status Bar-->
+    <!--<color name="colorAccent">#f20818</color>-->
+    <!--<color name="colorAccent">#ffffff</color>-->
+    <color name="colorAccent">#167c1a</color>
+
+
+
+<!--main-->
+
+    <color name="mainBackground">#000000</color>
+    <color name="itemBackground">#101010</color>
+
+
+    <color name="actionBar">#000000</color>
+
+
+    <color name="navBare">#000000</color>
+    <color name="navBareActive">#fff</color>
+    <color name="navBareInactive">#444</color>
+
+
+    <color name="textMain">#ccc</color>
+    <color name="textAccent">#fff</color>
+
+
+    <color name="buttons">#136617</color>
+
+    <color name="grayButtons">#2a312b</color>
+
+    <color name="switchButtonsOn">#165c1a</color>
+    <color name="switchButtonsOff">#082309</color>
+
+
+
+<!--reports-->
+
+    <color name="dashProgressBarBack">#242524</color>
+    <color name="dashChartPlan">#0b3e0e</color>
+    <color name="dashChartFact">#136617</color>
+
+
+    <color name="revenueProgressRed">#b70205</color>
+    <color name="revenueProgressYel1">#d1801d</color>
+    <color name="revenueProgressYel2">#c4b021</color>
+    <color name="revenueProgressYel3">#7f8413</color>
+    <color name="revenueProgressGreen">#136617</color>
+
+
+    <color name="salesMixCoffee">#865734</color>
+    <color name="salesMixDrink">#1E90FF</color>
+    <color name="salesMixFood">#6B8E23</color>
+    <color name="salesMixOthers">#DAA520</color>
+
+
+    <color name="goldenCoffee">#865734</color>
+    <color name="goldenDrink">#02b7a7</color>
+    <color name="goldenFood">#2a4901</color>
+    <color name="golden_star">#DAA520</color>
+
+
+<!--test colors=======================-->
+
+    <color name="supportYel">#dcce31</color>
+    <color name="supportPink">#ffe169c3</color>
+    <color name="supportPurp">#893bb3</color>
+    <color name="supportpinkhalf">#88e169c3</color>
+
+
+    <color name="randomGray1">#2e2e2e</color>
+    <color name="randomGray2">#716c70</color>
+    <color name="randomGray3">#555456</color>
+    <color name="randomGray4">#333032</color>
+
+
+
+
+    <color name="transparent">#00000000</color>
+    <color name="transparentBlack90">#e6000000</color>
+    <color name="transparentBlack80">#cc000000</color>
+    <color name="transparentBlack70">#b3000000</color>
+    <color name="transparentBlack60">#99000000</color>
+    <color name="transparentBlack50">#80000000</color>
+    <color name="transparentBlack40">#66000000</color>
+    <color name="transparentBlack30">#4d000000</color>
+    <color name="transparentBlack20">#33000000</color>
+    <color name="transparentBlack10">#1a000000</color>
+    <color name="transparentBlack05">#0d000000</color>
+
+
+
+
+    <!--<color name="gray">#444</color>
+    <color name="white">#fff</color>
+
+    <color name="black">#000</color>
+    <color name="red">#f00</color>
+    <color name="green">#0f0</color>
+    <color name="blue">#00f</color>
+
+
+    <color name="buttonPrimary">#027037</color>
+    <color name="buttonPressed">#004421</color>
+    <color name="buttonDisabled">#666666</color>
+
+    <color name="headerPrimary">#019146</color>
+    <color name="colorHighlight">#01b256</color>
+
+    <color name="barGreen">#01ad1e</color>
+    <color name="barDarkGreen">#00440b</color>
+
+    <color name="colorCoffee">#C08C70</color>
+    <color name="colorFood">#56b3cd</color>
+    <color name="colorDrink">#5c7342</color>
+    <color name="colorOthers">#c7b92a</color>-->
+
+
+    <!-- hex alpha
+      100% — FF
+      95% — F2
+      90% — E6
+      85% — D9
+      80% — CC
+      75% — BF
+      70% — B3
+      65% — A6
+      60% — 99
+      55% — 8C
+      50% — 80
+      45% — 73
+      40% — 66
+      35% — 59
+      30% — 4D
+      25% — 40
+      20% — 33
+      15% — 26
+      10% — 1A
+      5% — 0D
+      0% — 00-->
+
+
+
+</resources>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="ru.coffeeset.cscl.reporter.models.accessList.Property" alias="p"/>
+        <import type="ru.coffeeset.cscl.reporter.models.accessList.Format" alias="f"/>
+
+        <variable
+            name="filter"
+            type="ru.coffeeset.cscl.reporter.models.Filter" />
+    </data>
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mainBackground">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:isScrollContainer="true">
+
+
+                <Button
+                    android:id="@+id/set_default"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+
+                    android:backgroundTint="@color/grayButtons"
+                    android:text="@string/STR_FILTER_DEFAULT"
+                    android:theme="@style/greenButtons"
+
+                    app:layout_constraintBottom_toTopOf="@id/recycler_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/set_saved"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/set_saved"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+
+                    android:backgroundTint="@color/grayButtons"
+                    android:text="@string/STR_FILTER_SAVED"
+                    android:theme="@style/greenButtons"
+
+                    app:layout_constraintBottom_toTopOf="@id/recycler_view"
+                    app:layout_constraintLeft_toRightOf="@id/set_default"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+
+                    app:layout_constraintBottom_toTopOf="@id/format"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/set_default" />
+
+
+
+
+                <TextView
+                    android:id="@+id/format"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:gravity="center"
+                    android:text="@string/STR_FORMAT"
+                    android:textColor="@color/textMain"
+                    android:textSize="16sp"
+
+                    app:layout_constraintBottom_toTopOf="@id/toggle_button_coffeeshop"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recycler_view" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_button_coffeeshop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:checked="@{filter.getByFormat()[f.COFFEESHOP]}"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff="@string/STR_FORMAT_COFFEESHOP"
+                    android:textOn="@string/STR_FORMAT_COFFEESHOP"
+
+                    app:layout_constraintHorizontal_chainStyle="packed"
+
+                    app:layout_constraintBottom_toTopOf="@id/property"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/toggle_button_espressit"
+                    app:layout_constraintTop_toBottomOf="@id/format" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_button_espressit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:checked="@{filter.getByFormat()[f.ESPRESSIT]}"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff="@string/STR_FORMAT_ESPRESSIT"
+                    android:textOn="@string/STR_FORMAT_ESPRESSIT"
+
+                    app:layout_constraintBottom_toTopOf="@id/property"
+                    app:layout_constraintLeft_toRightOf="@id/toggle_button_coffeeshop"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/format" />
+
+
+
+
+
+                <TextView
+                    android:id="@+id/property"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:text="@string/STR_PROPERTY"
+                    android:textColor="@color/textMain"
+                    android:textSize="16sp"
+
+                    app:layout_constraintBottom_toTopOf="@id/toggle_button_governet"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toggle_button_coffeeshop" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_button_master"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:checked="@{filter.getByProperty()[p.MASTER]}"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff="@string/STR_PROPERTY_MASTER"
+                    android:textOn="@string/STR_PROPERTY_MASTER"
+
+                    app:layout_constraintHorizontal_chainStyle="packed"
+
+                    app:layout_constraintBottom_toTopOf="@id/apply"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/toggle_button_franchise"
+                    app:layout_constraintTop_toBottomOf="@id/property" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_button_franchise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:checked="@{filter.getByProperty()[p.FRANCHISE]}"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff="@string/STR_PROPERTY_FRANCHISE"
+                    android:textOn="@string/STR_PROPERTY_FRANCHISE"
+
+                    app:layout_constraintBottom_toTopOf="@id/apply"
+                    app:layout_constraintLeft_toRightOf="@id/toggle_button_master"
+                    app:layout_constraintRight_toLeftOf="@id/toggle_button_spv"
+                    app:layout_constraintTop_toBottomOf="@id/property" />
+
+
+                <ToggleButton
+                    android:id="@+id/toggle_button_spv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:checked="@{filter.getByProperty()[p.SPV]}"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff="@string/STR_PROPERTY_SPV"
+                    android:textOn="@string/STR_PROPERTY_SPV"
+
+                    app:layout_constraintBottom_toTopOf="@id/apply"
+                    app:layout_constraintLeft_toRightOf="@id/toggle_button_franchise"
+                    app:layout_constraintRight_toLeftOf="@id/toggle_button_governet"
+                    app:layout_constraintTop_toBottomOf="@id/property" />
+
+
+                <ToggleButton
+                    android:id="@+id/toggle_button_governet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:checked="@{filter.getByProperty()[p.GOVERNET]}"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff="@string/STR_PROPERTY_GOVERNET"
+                    android:textOn="@string/STR_PROPERTY_GOVERNET"
+
+                    app:layout_constraintBottom_toTopOf="@id/apply"
+                    app:layout_constraintLeft_toRightOf="@id/toggle_button_spv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/property" />
+
+
+
+
+
+                <Button
+                    android:id="@+id/apply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:backgroundTint="@color/buttons"
+                    android:text="@string/STR_FILTER_APPLY"
+                    android:theme="@style/greenButtons"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toggle_button_governet"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+</layout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="element"
+            type="ru.coffeeset.cscl.reporter.models.accessList.IAccessItem" />
+
+        <variable
+            name="clicker"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="15dp"
+        android:layout_margin="1dp"
+        android:background="@color/itemBackground"
+        app:onClickListener="@{clicker}">
+
+
+        <TextView
+            android:id="@+id/element_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+
+            android:textColor="@color/textMain"
+            android:textSize="13sp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/element_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+
+            android:text='@{element == null ? @string/STR_FILTER_ALL : element.name}'
+            android:textColor="@color/textMain"
+            android:textSize="20sp"
+            android:drawableEnd="@drawable/ic_arrow"
+
+            app:layout_constraintTop_toBottomOf="@id/element_type"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

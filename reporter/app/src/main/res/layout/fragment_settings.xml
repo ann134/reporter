@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clicker"
+            type="ru.coffeeset.cscl.reporter.ui.fragments.settings.SettingsFragment" />
+    </data>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:background="@color/itemBackground"
+                android:gravity="center_vertical"
+
+                android:padding="5dp"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+
+                app:layout_constraintBottom_toTopOf="@+id/logout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:background="@color/itemBackground"
+                android:gravity="center_vertical"
+
+                android:padding="5dp"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+
+                app:layout_constraintBottom_toTopOf="@id/date"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/version" />
+
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:backgroundTint="@color/buttons"
+                android:text="@string/STR_SETTINGS_BUTTON"
+                android:theme="@style/greenButtons"
+
+
+                app:layout_constraintBottom_toBottomOf="@id/username"
+                app:layout_constraintRight_toRightOf="@id/username"
+                app:layout_constraintTop_toTopOf="@id/username" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:background="@color/itemBackground"
+                android:gravity="center_vertical"
+
+                android:padding="5dp"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+                android:drawableEnd="@drawable/ic_arrow"
+
+                app:layout_constraintBottom_toTopOf="@id/filter"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/username" />
+
+
+            <!--<android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintBottom_toTopOf="@id/animation"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date" />-->
+
+            <TextView
+                android:id="@+id/filter"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:background="@color/itemBackground"
+                android:gravity="center_vertical"
+
+                android:padding="5dp"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+                android:drawableEnd="@drawable/ic_arrow"
+
+                app:layout_constraintBottom_toTopOf="@id/animation"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date" />
+
+
+            <TextView
+                android:id="@+id/animation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:background="@color/itemBackground"
+                android:gravity="center_vertical"
+
+                android:padding="5dp"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filter" />
+
+            <Switch
+                android:id="@+id/switcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintBottom_toBottomOf="@id/animation"
+                app:layout_constraintRight_toRightOf="@id/animation"
+                app:layout_constraintTop_toTopOf="@id/animation" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="WidgetDash">
+        <attr name="factMaster" format="string" />
+        <attr name="factFranchise" format="string" />
+        <attr name="factSpv" format="string" />
+        <attr name="planMaster" format="string" />
+        <attr name="planFranchise" format="string" />
+        <attr name="planSpv" format="string" />
+        <attr name="android:ems" />
+    </declare-styleable>
+
+</resources>

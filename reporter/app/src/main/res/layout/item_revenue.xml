@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="division"
+            type="ru.coffeeset.cscl.reporter.models.reports.Revenue.ReportItem" />
+        <variable
+            name="adapter"
+            type="ru.coffeeset.cscl.reporter.controllers.adapters.RevenueAdapter" />
+
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:background="@color/mainBackground">
+
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+
+
+            android:progressDrawable="@drawable/progress_bar"
+
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--//android:progressTint="@{adapter.getProgressColor(division.progress)}"-->
+
+        <TextView
+            android:id="@+id/division_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+
+            android:gravity="start"
+            android:text="@{division.division.name}"
+            android:textColor="@color/textMain"
+            android:textSize="18sp"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/division_progress"/>
+
+        <TextView
+            android:id="@+id/division_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:gravity="end"
+            android:text="@{division.getProgressString()}"
+            android:textColor="@color/textMain"
+            android:textSize="18sp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/division_name"/>
+
+
+
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
